@@ -9,8 +9,10 @@ class index extends DController {
 
     public function home () {
         $this->load->view('header');
-        $category = $this->load->model('homemodel');
-        $data['category'] = $category->category();
+
+        $homemodel = $this->load->model('homemodel');
+        $category_product = 'category_product';
+        $data['category'] = $homemodel->category($category_product);
         $this->load->view('home',$data);
         $this->load->view('footer');
     }
